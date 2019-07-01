@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="jquery-3.3.1.min.js"></script>
+	<meta charset="UTF-8">
+	<title>jquery基础知识</title>
+	<style>
+		.aaabbb >li {
+			list-style: none;
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+		li {
+			list-style: none;
+		}
+		.domouse > li {
+						width: 200px;
+			height: 40px;
+			border:2px solid black;
+			margin: 5px;
+			text-align: center;
+
+		}
+		.mouse >div {width: 200px;
+			height: 60px;
+			border:2px solid blue;
+			margin:5px;
+			text-align: center;}
+		.selector > div {
+			width: 200px;
+			height: 40px;
+			border:2px solid black;
+			margin: 5px;
+			text-align: center;
+		}
+		button {
+			margin:5px;
+			height: 50px;
+		}
+      .animate {
+      	width: 200px;
+      	height: 200px;
+      	background-color: green;
+      }
+      .toggles {
+      	width: 100px;height: 50px;
+      	border: 1px solid orange;
+      }
+      p {display: block;}
+      .cssitema {
+      	background: orange;
+      }
+      .cssitemb {
+      	font-size: 1.5em;
+      	color: red;
+      }
+      .csslist {background-color:pink;}
+	</style>
+</head>
+<body>
+	<h3 class="text">jquery选择器基于CSS选择器，以及一些自定义的选择器，下面这些是常用的</h3>
+	<ul class="aaabbb">
+		<li class="selector">
+			<div id="example">(id选择器)第1个div</div>
+			<div class="example2">(类选择器)第2个div</div>
+			<div class="example3"><p style="margin: 5px">(元素选择器)第3个div</p></div>
+			<div class="example4">(通配符*选择器)第4个div</div>
+			<div class="example5">第5个div</div>
+			<div class="example6">第6个div</div>
+			<div class="example7">第7个div</div>
+			<div class="example8">第8个div</div>
+			<div class="example9">第9个div</div>
+			<div class="example10">第10个div</div>
+			<div class="example11">第11个div</div>
+			<div class="example12">第12个div</div>
+		</li>
+		<h3>过滤选择器（下标是从0开始算起的）</h3>
+		<li>
+			<button class="a1">$("div:first")（第一个div）</button>
+			<button class="a2">$("div:last")（最后一个div）</button>
+			<button class="a3">$("div:even")（下标为偶数的div）</button>
+			<button class="a4">$("div:odd")（下标为奇数的div）</button>
+			<button class="a5">$("div:eq(4)")（下标等于4的div，是第5个div元素）</button>
+			<button class="a6">$("div:gt(2)")下标大于2的div</button>
+			<button class="a7">$("div:lt(3)")下标小于3的div</button>
+			<button class="a8">$("div:not(#example)")挑选除id="example"以外的所有div</button>
+		</li>
+		<hr>
+		<h3>鼠标事件</h3>
+		<li class="mouse">
+			<ul class="domouse">
+				<li class="click">点击</li>
+				<li class="dclick">双击</li>
+				<li class="mmouseenter">经过</li>
+				<li class="mmouseleave">离开</li>
+				<li class="mhover">悬停</li>
+			</ul>
+        </li><br>
+        <h4>hover()方法规定要进行mouseenter()和mouseleave()两个事件</h4>
+        <form action="">
+        	输入框: <input type="text">
+        	<p>输入次数：<span>0</span></p>
+        </form>
+	</ul><hr>
+		 <div class=""></div>
+		<button class="toggles">显示show()隐藏hide()</button>
+		<button class="fadeToggle">淡进fadeIn()淡出fadeOut()</button>
+		<button class="slideToggle">上下滑动slideDown(),slideUp()</button>
+		<div class="animate"></div><hr>
+	<div style="width: 500px;height: 300px">
+		<p class="anima" style="display:block;width: 70px;height:25px;background-color: blue;">动画</p>
+		<p class="animaab" style="display:block;width: 70px;height:25px;background-color: green;">停止</p>
+		<p class="animaabb" style="display:block;width: 70px;height:25px;background-color: purple;">停止所有</p>
+		<div class="animate1" style="width: 100px;height:100px;background-color: red;position: relative;">动画</div></div><hr>
+	<div class="content">
+		<h2>增减元素</h2>
+			<button class="btn_a">获取text()</button>
+			<button class="btn_b">获取html()</button>
+			<button class="btn_c">获取表单输入框的值val()</button>
+			<button class="btn_d">设置内容text("")</button>
+			<button class="btn_e">设置内容html("")【包括html标记】</button>
+			<button class="btn_f">设置表单字段的值val("")</button>
+			<button class="btn_g">元素内向前添加元素prepend("")</button>
+			<button class="btn_h">元素内向后添加元素append("")</button>
+			<button class="btn_i">元素前添加元素before("")</button>
+			<button class="btn_j">元素后添加元素after("")</button>
+			<button class="btn_k">删除被选元素及其子元素remove()</button>
+			<button class="btn_l">删除被选元素的子元素empty()</button>
+			<br><span><span style="background: blue;color: white">remove()</span>该方法删除只作用于同级元素<span style="color: purple">$("a").remove("b")a和b必须是同级才生效</span></span>
+			<div class="textaa" style="font-size: 2em">这是一段<strong>加粗</strong>文字</div>
+			<div class="htmla"  style="font-size: 2em">这是又一段<strong>加粗</strong>文字</div>
+			<div class="test1" style="background: green; font-size: 2em" >这是一段文字</div>
+			<div class="test2" style="width: 400px;height: 100px;background: yellow"><p>第一个P段落</p>
+			<p>第二个P段落</p>
+			<p>第三个P段落</p></div>
+			<br><span style="font-size: 2em">输入框</span>  <input id="inputb" type="text" value="这是提示语" style="height: 40px;font-size: 2em">	
+	</div><hr>
+	<div class="css">
+		<h2>CSS类</h2>
+		<button class="btn_ca">addClass() - 向元素添加一个或多个类</button>
+		<button class="btn_cb">removeClass() - 从被选元素删除一个或多个类</button>
+		<button class="btn_cc">toggleClass() - 对被选元素进行添加/删除类的切换</button>
+		<button class="btn_cd">css() - 返回样式属性</button>
+		<button class="btn_ce">css() - 设置样式属性</button>
+		<div class="csslist" style="width: 500px;height: 100px;text-align:center;line-height: 100px;border:1px solid #000;">
+			这是一段待搭配css段落。
+		</div>
+	</div>
+	<hr>
+	<ul><h2>遍历</h2>
+		<li>遍历祖先
+			<div>$("element").parent()--找到该元素的直接父元素</div><br>
+			<div>$("element").parents()--找到该元素的所有祖先元素，一直遍历到html元素</div><br>
+			<div>$("element").parentUntil("parentElement")--找到该元素的祖先元素中是“parentElement”的元素</div>
+		</li><br><hr>
+		<li style="color: blue;"><h3>遍历后代</h3><br>
+			<div>$("element").children()--返回是该元素的所有直接子元素</div><br>
+			<div>$("element").find("childrenElement")--找到该元素所有后代中所有是chiledrenElement的元素</div><br><hr>
+		</li>
+		<li><h3>遍历同胞（siblings）</h3>
+			<div>$("element").siblings()--遍历该元素所有同胞元素</div><br>
+			<div>$("element").next()--返回该元素的下一个同胞元素</div><br>
+			<div>$("element").nextAll()--返回该元素的所有跟随的同胞元素</div><br>
+			<div>$("element").nextUntil("element")--返回这两个元素之间的所有同胞元素（不包含自身）</div><br>
+			<div>$("element").prev()--返回该元素的上一个同胞元素</div><br>
+			<div>$("element").prevAll()--返回该元素的所有之前的同胞元素</div><br>
+			<div>$("element").prevUntil(“element”)--返回这2个元素之间的所有同胞元素（不包含自身）</div>
+		</li><hr>
+		<li><h3>过滤</h3>
+			<div>$("element").fierst()--返回是该元素种类一样的列表中第一个</div><br>
+			<div>$("emement").last()--返回的是该元素种类列表里的最后一个--</div><br>
+				<div>$("element").eq(num)--返回的是下标为num的元素</div><br>
+				<div>$("element").filter("clssMane"||“#ID”  等)--返回匹配（"clssMane"||“#ID”）的element元素</div><br>
+				<div>$("element").not("classNane"||"id")--返回没有（"classNane"||"id"）的元素</div>
+		</li>
+	</ul>
+
+</body>
+<script>
+	$(function(){
+		//获取text元素
+		$(".btn_a").click(function(){
+			alert($(".textaa").text());
+		});
+		//获取html元素
+		$(".btn_b").click(function(){
+			alert($(".textaa").html());
+		});
+		//获取表单value值
+		$(".btn_c").click(function(){
+			alert($("#inputb").val());
+		});
+		//设置内容
+		$(".btn_d").click(function(){
+			$(".htmla").text("Jquery");
+		});
+		//设置内容
+		$(".btn_e").click(function(){
+			$(".htmla").html("<i>Jquery</i>");
+		});
+		//设置inpunt表单字段的值
+		$(".btn_f").click(function(){
+			$("#inputb").val("Jquery");
+		});
+		//元素内向前添加
+		$(".btn_g").click(function(){
+			$(".test1").prepend("我爱学习<br />");
+		});
+		//元素内向后添加
+		$(".btn_h").click(function(){
+			$(".test1").append("<br />学习使我快乐");
+		});
+		//元素前添加
+		$(".btn_i").click(function(){
+			$(".test1").before("学习使我快乐");
+		});
+		//元素后添加
+		$(".btn_j").click(function(){
+			$(".test1").after("<br />学习使我快乐");
+		});
+		//删除元素
+		$(".btn_k").click(function(){
+			$(".test2").remove();
+		});
+		//删除元素
+		$(".btn_l").click(function(){
+			$(".test2").empty();
+		});
+		//增加CSS
+		$(".btn_ca").click(function(){
+			$(".csslist").addClass("cssitema cssitemb");
+		});
+		//删除CSS
+		$(".btn_cb").click(function(){
+			$(".csslist").removeClass("cssitema");
+		});
+		//切换CSS
+		$(".btn_cc").click(function(){
+			$(".csslist").toggleClass("cssitema");
+		});
+		//返回CSS样式
+		$(".btn_cd").click(function(){
+			alert($(".csslist").css("background-color"));
+		});
+		//设置CSS样式
+		$(".btn_ce").click(function(){
+			$(".csslist").css("background-color","purple");
+		});
+
+		//动画效果图
+		$(".anima").click(function(){
+			$(".animate1").animate({left:"500px"},3000);
+			$(".animate1").animate({bottom:"50px"},3000);
+			$(".animate1").animate({opacity:"0.7",fontSize:"3em"},2000);
+			$(".animaab").click(function(){
+				$(".animate1").stop();
+			});
+			$(".animaabb").click(function(){
+				$(".animate1").stop(true);
+			});
+		});
+		//显示隐藏
+		$(".toggles").click(function(){
+			$(".animate").toggle();
+		});
+		//淡进淡出
+		$(".fadeToggle").click(function(){
+			$(".animate").fadeToggle(2000);
+		});
+		//上下滑动
+		$(".slideToggle").click(function(){
+			$(".animate").slideToggle(3000);
+		});
+		//获得内容
+		$(".texta").click(function(){
+			alert($(".textaa").text());
+		});
+		$(".textb").click(function(){
+			alert($(".htmla").html());
+		});
+		$(".textc").click(function(){
+			alert($("input#inptub").val());
+		});
+		//点击事件改变CSS属性
+		$("#example").click(function(){
+			$("#example").css("background-color","red");
+			alert("现在点击的是#id属性");
+		});
+		$(".example2").click(function(){
+			$(".example2").css({"background-color":"green","color":"red"});
+			$(".example2").html("你更改了颜色");
+		});
+		$(".example3").click(function(){
+			$(".example3 p").css("background-color","red").html("div标签内的P元素背景改变");
+		});
+		$(".example4").click(function(){
+			$("*").css({"border-width":"5px","font-size":"10px"});
+		});
+		$(".a1").click(function(){
+			$(".aaabbb div:first").css("background-color","green");
+		});
+		$(".a2").click(function(){
+		     $(".aaabbb div:last").css({
+				"font-size":"25px",
+				"color":"blue"
+			});
+		});
+		$(".a3").click(function(){
+			$(".aaabbb div:even").css("background-color","yellow");
+		});
+		$(".a4").click(function(){
+			$(".aaabbb div:odd").css("background-color","purple");
+		});
+		$(".a5").click(function(){
+			$(".aaabbb div:eq(4)").css({"background-color":"yellow","font-size":"25px"});
+		});
+		$(".a6").click(function(){
+			$(".aaabbb div:gt(2)").css("color","red");
+		});
+		$(".a7").click(function(){
+			$(".aaabbb div:lt(3)").css({
+				"border-width":"5px",
+				"background-color":"purple"
+			});
+		});
+		$(".a8").click(function(){
+			$(".aaabbb div:not(#example)").css("background-color","orange");
+		});
+});
+	$(function(){
+		//单击
+		$(".click").click(function(){
+			$(".click").css("background-color","red");
+		});
+		//双击
+		$(".dclick").dblclick(function(){
+			$(".dclick").css("background-color","green");
+		});
+		//鼠标移动至该处
+		$(".mmouseenter").mouseover(function(){
+			$(".mmouseenter").css("background-color","orange");
+		});
+		//鼠标离开
+		$(".mmouseleave").mouseout(function(){
+			$(".mmouseleave").css("background-color","purple");
+		});
+		//鼠标悬停事件触发mouseenter()和mouseleave()两个事件
+		$(".mhover").hover(function(){
+			$(this).css("background-color","blue");
+		},function(){
+			$(this).css("background-color","white");
+		});
+		//键盘在input内按下次数
+		i=0;
+		$("input").keypress(function(){
+			$("span").text(i+=1);
+		});
+
+	});
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*父容器*/
+	.box {width: 200px;
+			height: 200px;
+			position: relative;
+			transform-style: preserve-3d;
+			/*方便观看立体图形旋转点角度*/
+			/*transform: rotateY(30deg) rotateX(30deg);*/
+			margin:100px auto;
+		}
+	.box > div {
+		    position: absolute;width: 200px;height: 200px;			
+		    font-size: 100px;
+			opacity: 0.7;
+			text-align: center;}
+		/*3D坐标系XYZ是在盒子内凹100px中心位置算起*/
+        /*正面需向前位移100px*/
+		.before { 
+			background-color: red;
+			transform: translateZ(100px);}
+		/*后面需要向后位移100px*/
+		.after {
+			background-color: blue;
+			transform: translateZ(-100px);}
+		/*上面需先沿着X轴顺时针旋转90，这时Z轴朝上，所以再沿着Z轴向上位移100px*/
+		.up {
+			background-color: green;
+			transform: rotateX(90deg) translateZ(100px);}
+		/*下面需先沿着X轴顺时针旋转90，这时Z轴朝上，所以再沿着Z轴向下位移100px*/
+		.down {
+			background-color: yellow;
+			transform: rotateX(90deg) translateZ(-100px);}
+		/*左面需先沿着Y轴顺时针旋转90，这时Z轴朝左，所以再沿着Z轴向左位移100px*/
+		.left{
+			background-color: #ffc107;
+			transform: rotateY(90deg) translateZ(100px);}
+		/*右面需先沿着Y轴顺时针旋转90，这时Z轴朝左，所以再沿着Z轴向右位移100px*/
+		.right {
+			background-color: #9f2da6;
+			transform: rotateY(90deg) translateZ(-100px);}
+		/*接下来我们通过animation动画可以看一下结果*/
+	@keyframes box{
+		to{transform: rotateY(360deg) rotateZ(360deg) rotateX(90deg)}
+	}
+   .box {
+   	 /*transform-style: preserve-3d;*/
+   	 animation:box 10s linear both infinite;}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="before">1</div>
+		<div class="after">2</div>
+		<div class="left">3</div>
+		<div class="right">4</div>
+		<div class="up">5</div>
+		<div class="down">6</div>
+	</div>
+</body>
+<script>
+	var a =1;
+	setTimeout(function(){
+		a =2 ;
+		console.log(a)
+	},0)
+	console.log(a);
+;
+</script>
+</html>

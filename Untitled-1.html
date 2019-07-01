@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>实现类似JQuery的工具函数slideDown,优化的下拉菜单</title>
+<style>
+.wrap {
+  display:inline-block;
+}
+.level1 {
+  float:left;
+  display:inline-block;
+  width: 100px;
+  background-color: skyblue;
+  text-align: center;
+}
+ 
+.level1>.level2>div,
+.level1>.mu1 {
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.level1>.mu1{
+  border-right: 1px solid #000;
+}
+.level1>.mu1:last-child {
+  border: none;
+}
+div.level2 {
+  background-color: red;
+}
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <div class='level1'>
+      <div class='mu1'>一级菜单1</div>
+      <div class='level2'>
+        <div>二级菜单1</div>
+        <div>二级菜单1</div>
+      </div>
+    </div>
+    <div class='level1'>
+      <div class='mu1'>一级菜单2</div>
+      <div class='level2'>
+        <div>二级菜单2</div>
+        <div>二级菜单2</div>
+        <div>二级菜单2</div>
+        <div>二级菜单2</div>
+      </div>
+    </div>
+    <div class='level1'>
+      <div class='mu1'>一级菜单3</div>
+      <div class='level2'>
+        <div>二级菜单3</div>
+        <div>二级菜单3</div>
+      </div>
+    </div>
+  </div>
+<script>
+let addClass = (node, className) => {
+  let current = node.className || '';
+  if ((' ' + current + ' ').indexOf(' ' + className + ' ') === -1) {
+    node.className = current ? (current + ' ' + className) : className;
+  }
+}
+let delClass = (node, className) => {
+  let current = node.className || '';
+  node.className = (' ' + current + ' ').replace(' ' + className + ' ', ' ').trim();
+}
+let addEvent = document.addEventListener ?
+  (elem,type,listener,useCapture)=>{
+    elem.addEventListener(type,listener,useCapture);
+  } :
+  (elem,type,listener,useCapture)=>{
+    elem.attachEvent('on'+type,listener);
+  };
+// 获取准确的高度 
+let getStyle = (element, cssPropertyName) => {
+  if (window.getComputedStyle) {
+    console.log(window.getComputedStyle(element)[cssPropertyName])
+    return window.getComputedStyle(element)[cssPropertyName];
+  } else {
+    cssPropertyName = cssPropertyName.replace(/\-([a-z])/, function(value, lower) {
+      return lower.toUpperCase();
+    });
+    return element.currentStyle[cssPropertyName];
+  }
+}
+// 下拉函数
+// time 单位‘秒’，浮点数
+// defaultHeight 未展开时的显示高度
+// node 折叠的节点
+let slideDown = (node,defaultHeight,time) => {
+  let height = Number.parseInt(getStyle(node,'height'));
+  console.log('height:',height);
+  node.style.height = defaultHeight+'px';
+  node.style.overflow = 'hidden';
+  node.style.transition = 'all '+time+'s '+'linear';
+  addEvent(node,'mouseenter',()=>{
+    node.style.height = height+'px';
+  })
+  addEvent(node,'mouseleave',()=>{
+    node.style.height = defaultHeight+'px';
+  })
+}
+ 
+let nav = document.getElementsByClassName('level1')
+// console.log(nav);
+for (let i = 0, item; item = nav[i]; i++) {
+  slideDown(item,30,0.3);
+}
+</script>
+</body>
+</html>

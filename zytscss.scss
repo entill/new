@@ -1,0 +1,7 @@
+@mixin mymargin($mt,$mr,$mb,$ml) {
+margin:$mt $mr $mb $ml;
+}
+@mixin mybox($width,$height){
+  width: $width;
+  height: $height;
+}
