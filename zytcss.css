@@ -8,7 +8,7 @@
    flex-pack-justify：子元素两端对齐
    兼容性：ios 4+、android 2.3+、winphone8+
    ============================================================ */
-   //flex兼容性问题
+   /* flex兼容性问题 */
    .flex {
     display: -webkit-box;
     display: -webkit-flex;
@@ -58,16 +58,19 @@
 	box-pack:space-around;
 }
 
-//单行字体自适应隐藏
+/* 单行字体自适应隐藏 */
 .text_overflow {
-//视情况更改宽度
+/* 视情况更改宽度 */
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+	 /* display:-webkit-box; */
 }
- //input占位符placeholder兼容性问题
- //所有inputholder 
+ /* input占位符placeholder兼容性问题 */
+ /* 所有inputholder  */
  ::-webkit-input-placeholder {
     color: red;
   }
@@ -79,4 +82,47 @@
   }
   :-ms-input-placeholder {
     color: red;
+  }
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  input[type="checkbox"]{
+    width: .14rem;
+    height:.14rem;
+    -webkit-appearance: none;
+    vertical-align:middle;
+    background-color:#fff;
+    border:#999 solid 1px;
+    border-radius: 50%;
+    min-height: 12px;
+    min-width: 12px;
+    position: absolute
+  }
+  input[type="checkbox"]:focus{
+  outline: none;
+  }
+  input[type=checkbox]:checked{
+    background-color: #FF0036;
+  }
+  input[type=checkbox]:checked::after{
+    content: '';
+    top: .03rem;
+    left: .02rem;
+    position: absolute;
+    background: transparent;
+    border: #fff solid .02rem;
+    border-top: none;
+    border-right: none;
+    height: .03rem;
+    width: .06rem;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); 
+    transform: rotate(-45deg);
+    z-index: 999
   }
