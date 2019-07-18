@@ -1,0 +1,11 @@
+// 自定义函数存在return值
+@function  setvw($px){
+    @return ($px/375)*100vw;
+};
+@function  setvh($px){
+    @return ($px/667)*100vh;
+};
+.box{
+    width:setvw(375);
+    height:setvh(200);
+}

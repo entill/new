@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    var a = "tt"
+    //number方法(JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。)
+    console.log(1==1.0) //true
+    //1:parseInt任何一个数字存在正负数 +0 -0;
+    console.log(parseInt("11")) // number类型11
+    console.log(typeof parseInt("11")) //number
+    console.log(parseInt(' 23')) //会去空格 23
+    console.log(parseInt('23.12')) //23
+    parseInt(23.12) // 23
+    // 等同于
+    parseInt('1.23') // 1
+    //字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。
+    parseInt('8a') // 8
+    parseInt('12**') // 12
+    parseInt('12.34') // 12
+    parseInt('15e2') // 15
+    parseInt('15px') // 15
+    //如果字符串的第一个字符不能转化为数字（后面跟着数字的正负号除外），返回NaN。
+    parseInt('abc') // NaN
+    parseInt('.3') // NaN
+    parseInt('') // NaN
+    parseInt('+') // NaN
+    parseInt('+1') // 1
+    //总结：要么是一个十进制整数，要么是NaN。
+    parseInt('011') // 11
+    //对于那些会自动转为科学计数法的数字，parseInt会将科学计数法的表示方法视为字符串，因此导致一些奇怪的结果。
+    parseInt(1000000000000000000000.5) // 1
+    //滴滴面试题
+    console.log(["1","2","3"].map(parseInt)) //返回值  [1,'NaN','NaN']
+    //深度解析parseInt()
+    parseInt() //函数解析一个字符串参数，并返回一个指定基数的整数 (数学系统的基础)。
+    //const intValue = parseInt(string, radix);
+    //string 要被解析的值。如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)。字符串开头的空白符将会被忽略。
+    //radix 一个介于2和36之间的整数(数学系统的基础)，表示上述字符串的基数。默认为10。返回值 返回一个整数或NaN
+    console.log(parseInt(11,'2')) //解析进制数返回10进制数
+    //2:parseFloat方法用于将一个字符串转为浮点数。
+    parseFloat('3.14') // 3.14
+    parseFloat([]) // NaN
+    parseFloat('FF2') // NaN
+    parseFloat('') // NaN
+    //3:isNaN方法可以用来判断一个值是否为NaN。
+    isNaN(NaN) // true
+    isNaN(123) // false
+    //4:isFinite方法返回一个布尔值，表示某个值是否为正常的数值。
+    //Infinity表示“无穷”，用来表示两种场景。一种是一个正的数值太大，或一个负的数值太小，无法表示；另一种是非0数值除以0，得到Infinity。
+    console.log(1 / 0) 
+    isFinite(Infinity) // false 
+    isFinite(-Infinity) // false 
+    isFinite(NaN) // false 
+    isFinite(undefined) // false 
+    isFinite(null) // true 
+    isFinite(-1) // true   
+    //5:Number对象的方法   
+    console.log(Number('1a.20001')) //转化为数字、转化失败返回NaN 
+    console.log(typeof (12.1.toString())) //string 
+    //Math用来执行数学任务(Number执行后无法返回正常数字，则下列方法就返回NaN) 
+    console.log(Math.round(1.521321223)) //4舍5入 
+    console.log(Math.random()) //返回0-1其中一个浮点数  
+    console.log(Math.abs(-10)) //返回绝对值 
+    console.log(Math.max(1,90,100)) //100 
+    console.log(Math.min(1,80,900)) //1 
+    var arr = [1,2.12,85] 
+    console.log(Math.max.apply(null,arr)) //85 
+    console.log(Math.PI) //返回圆周率 
+    console.log(Math.floor(5.95));//5像下取整
+    console.log(Math.ceil(7.004));//8向上取整 
+</script>
+</body>
+</html>

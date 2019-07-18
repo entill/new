@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    var arr = [
+            {
+            id:1,
+            name:'张三老祖宗',
+            parentId:''
+            },
+            {
+            id:5,
+            name:'王五孩子的孩子',
+            parentId:4
+            },
+            {
+            id:2,
+            name:'王五',
+            parentId:1
+            },
+            {
+            id:3,
+            name:'李四',
+            parentId:1
+            },
+            {
+            id:4,
+            name:'王五孩子',
+            parentId:2
+            },
+            {
+            id:6,
+            name:'李四的大儿子',
+            parentId:3
+            },
+        ];
+        //扩展数组去空方法
+        Array.prototype.notempty = function(){
+            var arr = [];
+            this.map(function(v){
+                if (v != undefined && v!=null && v!= 'empty') {
+                    arr.push(v)
+                }
+            })
+            return arr
+        }
+        //生成树结构
+        var renderTree = function(textArr){
+            textArr.map((v,i)=>{v.children ? "" : textArr[i].children = []});
+            for (let i = 0; i < textArr.length; i++) {
+                for (let j = 0; j < textArr.length; j++) {
+                    if (textArr[i].id == textArr[j].parentId) {
+                        textArr[i].children.push(textArr[j])
+                    }
+                }
+            };
+            // textArr.map((v,i)=>{v.children.length == 0 ? delete textArr[i]:''});
+            // textArr = textArr.notempty();
+            let linarr = [];
+            
+            textArr.forEach(e=>{e.parentId=="" ? linarr.push(e) : ""});
+
+            return linarr.length == 1 ? linarr[0] : linarr
+        }
+        console.log(renderTree(arr))
+</script>
+</html>

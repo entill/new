@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画案列</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            position: relative;
+            transition: 2s;
+        }
+        #box img{
+            display: block;
+            width: 300px;
+            height: 300px;
+        }
+        #box:hover{
+            transform:rotateY(180deg);
+        }
+        #box .bian{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 100px;
+            position: absolute; 
+        }
+        .zhi1{
+            background-color: red;
+            transform:rotateY(180deg);
+        }
+        .zhi2{
+            background-color: yellow;
+            backface-visibility: hidden;
+        }
+
+        #box2 img{
+        width: 200px;
+        height: 200px;
+        }
+        #box2{
+        perspective: 800px;
+        transform-style: preserve-3d;
+        transition:  5s infinite;
+        transform:rotateX(0deg) rotateY(0deg);
+        }
+        .mofang_box{
+        width: 200px;
+        height: 200px;
+        margin: 100PX auto;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: 50s;
+        transform:rotateX(0deg)rotateY(0deg);
+        }
+        .mofang_box:hover{
+        transform:rotateX(3600deg)rotateY(3600deg);
+        }
+        .mofang{
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        position: absolute;
+
+        }
+        .left{
+          transform:rotateY(90deg)translateZ(-100px);
+        }
+        .right{
+          transform:rotateY(90deg)translateZ(100px);
+        }
+        .top{
+          transform:rotateX(90deg)translateZ(100px)rotateZ(360deg);
+        }
+        .buttom{
+          transform:rotateX(90deg)translateZ(-100px)rotateZ(180deg);
+        }
+        .hou{
+          transform:rotateX(0deg)translateZ(-100px)rotateZ(180deg);
+        }
+        .qian{
+          transform:rotateX(0deg)translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 案列1 -->
+
+    <div id="box">
+        <div class="bian zhi1"><img src="./images/timg1.jpg" alt=""></div>
+        <div class="bian zhi2"><img src="./images/timg2.jpg" alt=""></div>
+    </div>
+
+    <!-- 案列2 -->
+    <div id="box2">
+        <div class="mofang_box"id="mofang_box">
+            <div class="mofang qian"><img src="./images/timg1.jpg"></div>
+            <div class="mofang hou"><img src="./images/timg2.jpg"></div>
+            <div class="mofang left"><img src="./images/timg3.jpg"></div>
+            <div class="mofang right"><img src="./images/timg4.jpg"></div>
+            <div class="mofang top"><img src="./images/timg5.jpg"></div>
+            <div class="mofang buttom"><img src="./images/timg6.jpg"></div>
+        </div>
+    </div>
+</body>
+<script>
+var arr = [1,23,4]
+delete arr[0]
+console.log(arr.filter(d=>d));
+Array.prototype.remove = function(){
+    var linarr = []
+    this.map(function(v){
+        if (v != "" && v!= undefined && v!= 'empty') {
+            linarr.push(v)
+        }
+    })
+    return linarr
+}
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+         .box{
+             width: 200px;
+             height: 200px;
+             background-color: red;
+             /* 动画名字 动画速度 动画时间 是否重复播放 */
+             animation:  myfirstFrams linear  5s infinite ;
+             /* 动画暂停paused running运行，默认运行 */
+             animation-play-state: running;
+
+         }
+         .box:hover{
+            animation-play-state: paused;
+         }
+         @keyframes myfirstFrams{
+             0% {background-color:red;border-radius: 0}
+             25%{background-color:slateblue;}
+             50%{background-color:seagreen;border-radius: 50%}
+             75%{background-color:slateblue;}
+             100%{background-color:red;border-radius: 0}
+         }
+        @keyframes mysecendFrams{
+            from{background-color:red;}
+            to{background-color:slateblue;}
+        }
+        .m-box{
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            position: absolute;
+            border-radius: 50%;
+            animation: liuying linear 5s infinite;
+        }
+        .m-box:hover{
+            animation-play-state: paused;
+        }
+        @keyframes liuying{
+            0%{left:200px;top:0px};
+            50%{left:200px;top:400px}
+            99%{left:200px;top: 0px}
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box "></div> -->
+        <div class="m-box"></div>
+
+    
+</body>
+</html>

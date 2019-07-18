@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<!-- js javascript(弱类型) ts typescript(类型检查)  -->
+<script type="text/javascript">
+console.log(1+1) //调试方式
+var str = "1" //string String
+var b = 1  // Number
+var status  = true //布尔值
+var a; //undefined
+var no = null //null（不存在引用地址）             往上 ：基本数据类型(String,Number,Boolean,undefined,Null,Symbol,)
+var obj = { a:1 } //object       往上 ：引用数据类型(object,)//function，Array
+
+console.log(false == 0) //true
+console.log(true == 1) //true
+//typeof 检测
+console.log('-------类型检测开始-------')
+console.log(typeof "11") //string
+console.log(typeof 11) //number
+console.log(typeof true) //boollean
+console.log(typeof undefined) //undefined
+console.log(typeof null) //object
+console.log(typeof Symbol('a')) //symbol
+console.log(typeof {}) //object
+console.log(typeof []) //object
+console.log(typeof function(){}) //function
+console.log('-----类型检测结束-----')
+//运算符
+var arr = [1,2,3,4,5] //Array
+var numa = 'a';
+var numb = "2";
+numa++
+numb--
+console.log(numb);
+//字符串拼接
+var name = "刘颖"
+var newstr = name+"你好"+name+"我在学习"
+console.log(newstr)
+//比较运算符
+console.log(!true)
+console.log('1' != 1)
+//三元判断 //三目判断
+1==1 ? console.log(1) : console.log(2);
+//逻辑运算符
+var numc = 1;
+var numd = 2;
+console.log(numc == 1 || numd == 3);
+console.log(numc == 1 && numd == 2);
+//switch 运算
+var a = 1
+switch(a){
+    case 1: 
+      console.log('+111')
+    break;
+    case 1: 
+      console.log('+222')
+    break;
+    default:
+      console.log('+333')
+}
+for(var a = 1;a<10;a++){
+    console.log(a)
+}
+//算出从1+~1000 的值
+</script>
+</html>

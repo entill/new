@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        .box1{
+            width: 100%;
+            /* 清除浮动方法2 */
+            overflow: hidden;
+            border: 1px solid red;
+        }
+        .c-box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            float: left;
+        }
+        .c-box3{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: right;
+        }
+        .c-box4{
+            width: 200px;
+            /* 清除浮动方法3 */
+            /* clear: both; */
+            height: 100px;
+            /* 清除浮动方法1 */
+            /* clear: both; */
+            background-color: green;
+        }
+        .c-box5{
+            width: 200px;
+            height: 100px;
+            background-color: darkmagenta;
+        }
+        .text-div{
+            width: 200px;
+            background-color: forestgreen;
+        }
+        .pp-box{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: forestgreen;
+            margin-left: 100px;
+        }
+        .p-box{
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+            margin-left: 100px;
+            /* position:relative; */
+            /* left: 20px;
+            top: 20px; */
+
+        }
+        .p-box1{
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+            left: 10px;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动 -->
+    <div class="box1">
+        <div class="c-box2"></div>
+        <div class="c-box3"></div>
+        <div class="text-div"></div>
+    </div>
+    <div class="c-box5"></div>
+    <!-- 清除浮动方式总结 -->
+    <!-- 1：父元素设置overflow：hidden
+    2: 给最后一个元素添加clear：both
+    3: 添加一个有高度的空元素 -->
+
+    <!-- 定位 -->
+    <!-- position:relative; 相对定位
+    position:absolute; 绝对定位
+    position:fixed;  固定定位  不会跟随页面滚动
+    position:static; 静态定位-->
+    <div class="pp-box">
+        <div class="p-box">
+            <div class="p-box1"></div>
+            <div class="p-box2"></div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

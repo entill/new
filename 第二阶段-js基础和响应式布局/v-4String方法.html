@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 转义字符表 -->
+    <p>转义字符表</p>
+    <img src="./image/转义符.png" alt="">
+    <script>
+        console.log(String('11') == new String('11'));
+        console.log(String('11') === new String('11'));
+        var str1 = new String('1');
+        var str2 = String('1');
+        console.log(str1)
+        console.log(typeof str1)
+        console.log(str2)
+        console.log(typeof str2)
+        //1:var str = '1 字符串不能换行
+        // '
+        //2:使用+号进行换行连接
+        var nstr = "1"
+                   +"2"
+        console.log(nstr) //12
+        //3:转义字符，用来解决特殊情况 \"  => " 详细见上图
+        var astr = "\"1"
+        console.log(astr) //"1
+        //4:字符串可以被视为字符数组，因此可以使用数组的方括号运算符，用来返回某个位置的字符（位置编号从0开始）。
+        var bstr = "tip"
+        console.log(bstr[0]); //t
+        //5:具有length属性
+        var cstr = "hello";
+        console.log(cstr.length) //5
+        //6 Base64转码 （所谓 Base64 就是一种编码方法，可以将任意值转成 0～9、A～Z、a-z、+和/这64个字符组成的可打印字符。使用它的主要目的，不是为了加密，而是为了不出现特殊字符，简化程序的处理。）
+        var string = 'Hello World!';
+        btoa(string) // "SGVsbG8gV29ybGQh"
+        atob('SGVsbG8gV29ybGQh') // "Hello World!"
+        // btoa('你好') // 报错
+        function b64Encode(str) {
+           return btoa(encodeURIComponent(str));
+        }
+        function b64Decode(str) {
+           return decodeURIComponent(atob(str));
+        }
+        b64Encode('你好') // "JUU0JUJEJUEwJUU1JUE1JUJE"
+        b64Decode('JUU0JUJEJUEwJUU1JUE1JUJE') // "你好"
+        //7:类型转换
+        var num = 24;
+        console.log(typeof num.toString())//"24"
+        var snum=24;
+        var mystr=String(snum);    //"24"
+        var dnum=24;
+        var mystr="" + dnum;    //"24"
+        //字符串的方法(分隔)
+        var dstr = "dasdas,你好,我号";
+        console.log(dstr.split(''))//吧每一个分成一个数组
+        console.log(dstr.split(',',2)) //使用逗号分隔成一个数组@param1:分隔符；@param2：最大长度，如果超出直接舍掉
+        //字符串替换 (默认只匹配全局第一个出现的字符，一个都不能查，@param1：匹配的字符，@param2：替换的字符)
+        //@param,可以使用正则表达式 /string/g =>全局匹配
+        var fstr = "helloword,im is lucyhello";
+        console.log(fstr.replace(/hello/g,'nohello'));
+        //字符串查找 indexof 从左到右匹配   lastindexof 从右往左匹配  返回的下标从左往右查，没有匹配返回-1
+        var gstr = "helloword,im is jack";
+        console.log(gstr.indexOf('ll')) //2 
+        console.log(gstr.lastIndexOf('rd')) //7
+        //字符串是切割和截取
+        //slice
+        var hstr = "imtis supman";
+        console.log(hstr.slice(3)) //is supman @param1:从左到右=>从某个数值开始直到结束：含当前位置
+        console.log(hstr.slice(-2)) //an @param1:从左到右=>从某个数值开始直到结束 不含
+        console.log(hstr.slice(1,2)) //m 含当前 不含结束
+        console.log(hstr.slice(-7,7)) // s 不含当前位置，不含结束为止
+        //substring 只能非负整数，截取起始结束位置同slice()函数一致。
+        var jstr = "im issupwoman";
+        console.log(jstr.substring(3)) //is supwoman  含当前位置直到结束
+        console.log(jstr.substring(3,5)) //is不含结束
+        //substr
+        var kstr="hello world!a";
+        console.log(kstr.substr(1))//ello world!a @param1:含当前位置直道结束
+        console.log(kstr.substr(2,5)) //llo @param1:含当前位置  @param2截取个数
+        //大小写转换
+        var mystr="Hello World!";
+        var lowCaseStr = mystr.toLowerCase();    //全部转化小写：hello world!
+        var upCaseStr = mystr.toUpperCase();    //全部转化大写：HELLO WORLD!
+        //去除空格
+        var trimStr = "nihao";
+        console.log(trimStr.length)
+        trimStr = " nihao ";
+        console.log(trimStr.length) 
+        var hhstr = trimStr.trim()  
+        console.log(hhstr.length)
+    </script>
+</body>
+</html>

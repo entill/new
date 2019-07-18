@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       #box{
+           width: 200px;
+           height: 200px;
+           border: 1px solid red;
+       }
+        .t-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+        }
+        #move{
+            width: 200px;
+            height:200px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+            background-color: blueviolet;
+        }
+        #movehear{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+        #firstmove{
+            width: 200px;
+            height: 200px;
+            background: gray;
+        }
+        #watchdom{
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+        }
+        #event1{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: relative;
+            left: 200px;
+        }
+        #event2{
+            width: 120px;
+            height: 120px;
+            background-color: green;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #event3{
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #noNameEvent{
+            width: 200px;
+            height: 200px;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body onload="pageIn()">
+    <a href="./v-13-b.html" target="nihao">点击跳出</a>
+    <div id="box" onclick="handerClick()"></div>
+    <div class="t-box" onclick="this.innerHTML = '他好'">你好</div>
+    <input type="text" onchange="inputOnChange()">
+    <div id="move">把你的鼠标移动上来</div>
+    <div id="movehear"></div>
+    <div id="firstmove"></div>
+    <div id="watchdom"></div>
+    <div id="noNameEvent"></div>
+    <div id="event1">
+        <div id="event2">
+            <div id="event3"></div>
+        </div>
+    </div>
+    <script>
+      var box = document.getElementById('box');
+      //点击事件
+        box.onclick = function(){
+            console.log(this)
+            console.log(111)
+        }
+        function handerClick (){
+            console.log(this)
+            //console.log('im is handerclick')
+        }
+        function pageIn(){
+            console.log('进入页面')
+        }
+        //onchange 事件，监听input变化，失去焦点时才会触发，常用与表单输入
+        function inputOnChange(event){
+            console.log("正在改变")
+        }
+        //onmouseover 和 onmouseout 事件 onmouseover 和 onmouseout 事件可用于在鼠标指针移动到或离开元素时触发函数。
+        var move = document.getElementById('move');
+        move.onmouseover = function(){ //鼠标移入的时候改变
+            this.innerHTML = '进来了'
+        }
+        move.onmouseout = function(){
+            this.innerHTML = '把你的鼠标移动上来'
+        }
+        //在某个区域内移动
+        move.onmousemove  = function(){
+            console.log('鼠标在移动')
+        }
+        //onmousedown、onmouseup 以及 onclick 事件是鼠标点击的全部过程。首先当某个鼠标按钮被点击时，触发 onmousedown 事件，然后，当鼠标按钮被松开时，会触发 onmouseup 事件，最后，当鼠标点击完成时，触发 onclick 事件。
+        var movehear = document.getElementById('movehear');
+        movehear.onmousedown = function(){
+            this.style.background = "#ff5722"
+        }
+        movehear.onmouseup = function(){
+            this.style.background = 'green'
+        }
+        //ondblclick 
+        var firstmove = document.getElementById('firstmove');
+        firstmove.ondblclick = function(){
+            console.log('双击了')
+        }
+        //键盘事件
+        window.onkeydown = function(e){
+            console.log(e)
+        }
+        //事件流 
+        //冒泡型事件流：事件的传播是从最特定的事件目标到最不特定的事件目标。即从DOM树的叶子到根。【推荐】
+        //捕获型事件流：事件的传播是从最不特定的事件目标到最特定的事件目标。即从DOM树的根到叶子。
+        //DOM标准采用捕获+冒泡。两种事件流都会触发DOM的所有对象，从document对象开始，也在document对象结束。
+        //在冒泡型事件流中click事件传播顺序为：<div> =》<body> =》<html> =》document
+        //在捕获型事件流中click事件传播顺序为：document =》<html> =》<body> =》<div>
+        var ele1 = document.getElementById('event1');
+        var ele2 = document.getElementById('event2');
+        var ele3 = document.getElementById('event3');
+        // ele1.onclick = function(){
+        //     console.log(111)
+        // }
+        // ele2.onclick = function(){
+        //     console.log(222)
+        // }
+        // ele3.onclick = function(e){
+        //     e.stopPropagation() //阻止事件冒泡
+        //     console.log(333)
+        // } 
+        //事件监听 @param1:事件名（无on）@param2:function(){}() @param3:传播方式，默认false=>冒泡 true=>捕获
+        //移除监听(注意移除时@param1：'事件名'，@param2：'处理函数，')保证param1和param2和添加时相同才能移除掉
+        var wtDom = document.getElementById('watchdom')
+        wtDom.addEventListener('click',handerWtDom,false)
+        function handerWtDom(){
+            console.log(4444)
+        }
+        function removeEvent(dom){
+            dom.removeEventListener('click',handerWtDom,false)
+        }
+        //匿名函数移除
+        var noNameEvent = document.getElementById('noNameEvent');
+        noNameEvent.addEventListener('click',function(e){
+            console.log('正在点击匿名函数的监听事件')
+            console.log(e);
+            noNameEvent.removeEventListener(e.type,arguments.callee,false)
+        },false)
+
+        //冒泡与捕获
+        ele1.addEventListener('click',function(e){
+            console.log(1111)
+            removeEvent(wtDom)
+        },false)
+        ele2.addEventListener('click',function(e){
+            console.log(2222)
+        },false)
+        ele3.addEventListener('click',function(e){
+            console.log(3333)
+        },false)
+    </script>
+</body>
+</html>

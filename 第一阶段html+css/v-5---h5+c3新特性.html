@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .a-box{
+            width: 100px;
+            height: 100px;
+            margin-left: 100px;
+            margin-top: 100px;
+            background-color: red;
+            border-top: 10px solid #fff;
+            border-bottom: 10px solid #000;
+            border-left: 10px solid blue;
+            border-right: 10px solid green;
+            /* 水平移动X轴Y轴 */
+            /* transform: translate(45px,45px); */
+            /* transform: translateX(45px); */
+            /* transform: translateY() */
+            /* 旋转 增大，顺时针，减小逆时针 */
+            transform: rotate(45deg);  
+            /* 翻转 */
+            /* transform: skew(30deg,0deg); */
+        }
+        .d3-box{
+            width: 300px;  
+            height: 200px; 
+            margin-left: 20px; 
+            margin-top: 20px;  
+            background-color: aqua;  
+            /* 开启3D模式 */
+            transform-style: preserve-3d;
+            transform:rotateX(0deg)rotateY(60deg)rotateZ(0deg);
+        }
+        .t-box{
+            width: 100px;
+            height: 100px;
+            transition: 5s;
+            border: 1px solid red;
+        }
+        .t-box:hover{
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- css3动画2d -->
+    <div class="a-box">大数据</div>
+
+    <!-- 3d旋转 -->
+    <div class="d3-box">3d旋转</div>
+
+    <!-- 过渡时间 -->
+    <div class="t-box">过渡状态</div>
+
+</body>
+</html>

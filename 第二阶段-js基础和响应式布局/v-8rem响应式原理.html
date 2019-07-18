@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="s-box">111</div>
+    <!-- <div class="s-box">222</div> -->
+</body>
+<script>
+    window.onload = function(){
+        var box = document.getElementById('box'); //
+        var s_box = document.getElementsByClassName("s-box")[0];  //数组 =》伪数组
+        var t_box = document.getElementsByTagName('div');
+        var q_box = document.querySelector('.s-box');
+        var ele = document.createElement('div') 
+        console.log(ele)
+        console.log(box)
+        console.log(s_box)
+        console.log(t_box)
+        console.log(q_box)
+        console.log(ele)
+        box.innerHTML = '<span>你好</span>'
+        ele.innerHTML = "我是创建的标签"
+        document.body.appendChild(ele)  //dom最后插入节点
+        // function runRem(designWidth){ 
+        //     //计算屏幕宽度
+        //     var screen = document.body.scrollWidth;
+        //     var htmlPx;
+        //     console.log(screen)
+        //     htmlPx = (screen / (designWidth / 100))+'px';
+        //     var remstyle = document.createElement('style')
+        //     remstyle.innerHTML = "html{font-size:"+htmlPx+"}"
+        //     document.documentEl ement.firstElementChild.appendChild(remstyle)
+        // }
+        //PC 手机
+    }
+  
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script> 
+//date对象 Date对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。
+var date = new Date();
+console.log(date) //Thu Jul 11 2019 16:48:20 GMT+0800 (中国标准时间)
+new Date(1378218728000) // Tue Sep 03 2013 22:32:08 GMT+0800 (CST)
+//方法
+var timesteamp = Date.now(); //毫秒数
+console.log(timesteamp) //http://www.beijing-time.org/shijianchuo/ 可以借住此网站进行转换
+console.log(Date.parse('2019-07-11')) //1562803200000 解析时间，解析失败返回NaN 
+var d = new Date();
+console.log(d.valueOf()); //==Date.now();
+console.log(d.getTime()) //==Date.now();
+console.log('--------')
+//获取时间戳的方法3种方法   Date.now() == new Date().valueOf() == new Date().getTime();
+//get类方法
+var tm = new Date();
+console.log(tm.getTime()) //返回实例距离1970年1月1日00:00:00的毫秒数，等同于valueOf方法。
+console.log(tm.getDate()) //每个月的几号
+console.log(tm.getDay()) //返回星期几
+console.log(tm.getYear())//返回距离1900的年数。
+console.log(tm.getFullYear()) // 返回当前年份
+console.log(tm.getMilliseconds()) //返回毫秒（0-999）
+console.log(tm.getMonth()) //返回月份，注意+1
+console.log(tm.getMinutes()) //返回分钟
+console.log(tm.getSeconds()) //返回秒
+console.log(tm.getTimezoneOffset()) //-480 / 60 ==8h
+//getTimezoneOffset()// 返回当前时间与 UTC 的时区差异，以分钟表示，返回结果考虑到了夏令时因素。
+</script> 
+</body>
+</html>

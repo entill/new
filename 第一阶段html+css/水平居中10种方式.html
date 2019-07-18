@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+    <style>
+        /* 方法1 */
+       .box{
+           width: 100px;
+           height: 100px;
+           border: 1px solid red;
+       }
+       .s-box{
+           width: 40px;
+           height: 40px;
+           margin: 0 auto;
+           margin-top: 50px;
+           transform: translateY(-50%);
+           -webkit-transform: translateY(-50%);
+           border: 1px solid blue;
+       }
+       /* 方法2*/
+       .big-box{
+           width: 200px;
+           height: 200px;
+           border: 1px solid red;
+       }
+       .big-box .m-box{
+           width: 80px;
+           height: 80px;
+           border: 1px solid green;
+           position: relative;
+           top: 50%;
+           margin-top: -40px;
+       }
+       /* vertical-align 属性设置元素的垂直对齐方式。 */
+       /* 方法3 */
+       .c-box{
+           width: 200px;
+           height: 200px;
+           line-height: 200px;
+           margin-top: 20px;
+           border: 1px solid red;
+        }
+        .c-box .m-box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid orange;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* 方法4 */
+        .d-box{
+            width: 200px;
+            height: 200px;
+            display: table-cell;
+            vertical-align: middle; 
+            border: 1px solid red;
+        }
+        .d-box .m-box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid orange;
+        }
+        /* 方法5 */
+        .e-box{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+        }
+        .e-box .m-box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid orange;
+        }
+        /* 方法6 */
+        .f-box{
+            width: 200px;
+            height: 200px;
+            display: grid;
+            border: 1px solid red;
+        }
+        .f-box .m-box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            align-self: center;
+        }
+        /* 方法7 */
+        .g-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            position: relative;
+        }
+        .g-box .m-box{
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid blue;
+        }
+        /* 方法8 */
+        .h-box{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+        .h-box .m-box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 1px solid goldenrod;
+        }
+        /* 方法9 */
+        .l-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            position: relative;
+        }
+        .l-box .m-box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: calc(50%-50px);
+            top: calc(50% - 50px);
+            border: 1px solid royalblue;
+        }
+        /* 方法10 */
+        .n-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            writing-mode: vertical-lr;
+            text-align: center;
+        }
+        .n-box .m-box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第一种利用transformy轴-50% && margin-top父元素一半 -->
+    <p>第一种</p>
+    <div class="box">
+         <div class="s-box"></div>
+    </div>
+    <!-- 第二种 定位top50%+自己margin-top负值-->
+    <p>第二种</p>
+    <div class="big-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第三种 vertical-align:middle实现，必须是行内块 -->
+    <p>第三种</p>
+    <div class="c-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第四种 使用表格属性父元素display：table-cell，vertical-align：middle-->
+    <p>第四种</p>
+    <div class="d-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第五种flex布局 推荐菜鸟教程-->
+    <p>第五种</p>
+    <div class="e-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第六种grid布局 grid布局的具体使用方法可以看阮一峰的博客，写的特别详细易懂-->
+    <p>第六种</p>
+    <div class="f-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第七种绝对定位+transformy轴-50% -->
+    <p>第七种</p>
+    <div class="g-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第八种双定位：利用定位四个方向0进行居中 -->
+    <p>第八种</p>
+    <div class="h-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第9种 calc计算属性  -->
+    <p>第九种</p>
+    <div class="l-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 第十种 writing-mode: vertical-lr;改变一般轴方向-->
+    <p>第十种</p>
+    <div class="n-box">
+        <div class="m-box"></div>
+    </div>
+    <!-- 兼容图 -->
+    <img src="./垂直居中兼容图/wu_img_03.png" alt="">
+    <script>
+     console.log('111')
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 600px;
+            border: 1px solid red;
+            display: flex;
+            align-content:center;
+            /* flex-direction:row-reverse; 规定主轴排列方向默认row从左到右 */
+            /* flex-wrap:wrap; nowrap（默认不换行）  是否换行 */
+           /*  justify-content:flex-start左浮 flex-end 右浮 center 居中显示 space-between 左右居两边，中间均匀分布 space-around 每个元素左右距离相等*/
+            /* justify-content: space-around ;    */
+            /* align-items: stretch; */
+            justify-content: flex-start;
+            
+        }
+        .item{
+            width: 100px;
+            height:80px;
+            border: 1px solid red;
+            order: 2;
+        }
+        .item2{
+            height: 120px;
+            order: 1;
+        }
+        .item3{
+            height: 150px;
+            order: 3;
+        }
+        .item4{
+            height: 130px;
+            order: 4;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" >
+          <div class="item">111</div>
+          <div class="item item2">222</div>
+          <div class="item item3">333</div>
+          <div class="item item4">444</div>
+    </div>
+</body>
+</html>

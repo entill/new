@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+   var arr = [1,2,3,4,5];
+   var newarr = new Array('1',2,3,4)
+   console.log(arr)  
+   console.log(newarr.length)//数组长度
+   console.log(arr[0]) //访问
+   console.log(arr[arr.length-1]) //访问
+   console.log(arr)  
+    for(var i = 0;i<arr.length;i++){
+        console.log(arr[i])
+    }
+    arr.forEach(function(i){
+        console.log(i)
+    })
+//    function sum(a,b){
+//       console.log(a,b)
+//    }
+//    sum("=","--")
+//方法1：concat
+var arr1 = ['你好',"11"],arr2 = [1,5,6];
+var arr3 = arr1.concat(arr2); //连接两个数组返回一个新数组，不改变原数组
+console.log(arr3)
+console.log(arr2)
+console.log(arr1) 
+//方法2:join
+var arr4 = arr1.join('+') //返回string。默认用，拼接，可指定拼接符 不改变原数组
+console.log(arr1)
+console.log(typeof arr4)
+//方法3：splice
+var arr5 = ['a',"b","c","d","e","f"] 
+//arr5.splice(2,2)  //两个参数 param1：起始下标，param2 ：删除个数 改变原数组
+arr5.splice(3,2,"你") //两个参数 param1：起始下标，param2 ：删除个数 param3:替换内容 改变原数组
+console.log(arr5)
+//方法4：shift && unshift
+var arr6 = [1,3,4,5,6]
+arr6.shift()    //删除数组第一个元素 改变原数组
+arr6.unshift(1)   // 向数组第一项添加一个或多个元素
+console.log(arr6)
+//方法5：delete //删除一个元素。不改变长度
+var arr7 = ["+","-","*"];
+delete arr7[1]
+console.log(arr7)
+//方法6：pop //删除数组最后一个 改变原数组，改变长度
+var arr8 = [1,2,3,4]
+arr8.pop()
+console.log(arr8)
+//方法7：push //像数组末尾添加元素 改变原数组长度
+var arr9 = [1,2,3,4,5]
+arr9.push(6) 
+console.log(arr9)
+//用for循环 排序[1,10,2,90,4,5,18,16]
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box2{
+            width: 700px;
+            height: auto;
+            background: rgba(red, green, blue,.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- action 常用于get方式提交表单 -->
+    <form action="https://www.baidu.com/"> 
+        <div class="box1">
+ <!-- 表单每一个元素 text为表单默认类型-->
+        First name: <input type="text" name="fname" disabled value="我是第一个名称" placeholder="我也是" />
+        Last name: <input type="text" class="mylname" name="lname" placeholder="我是提示"  maxlength="3"/>
+        <!-- 密码框 -->
+        <input type="password"  name="pwd" />
+        <!-- 上传文件 -->
+        <input type="file"  name="file" />
+         <!--提交按钮  -->
+        <input type="submit" value="submit" />
+         <!--隐藏类型  -->
+        <input type="hidden" />  
+        <!--单选框 for 对应ID -->
+        <input type="radio" name="man" id="man" value="man"/><label for="man">男</label>  
+        <input type="radio" name="man" id="woman" value="woman"/><label for="woman">女</label>
+        <!-- 复选框 -->
+        <input type="checkbox" name="interest" value="run" id="run" /><label for="run">跑步</label>  
+        <input type="checkbox" name="interest" value="guitar" id="guitar" /><label for="">吉他</label>  
+        <input type="checkbox" name="interest" value="yoga" id="yoga" /><label for="guitar">瑜伽</label>  
+        <input type="checkbox" name="interest" value="read" id="read" /><label for="read">阅读</label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <select name="" id="">
+            <option value="">11111</option>
+            <option value="">22222</option>
+            <option value="">33333</option>
+        </select>
+        </div>
+       
+        <!-- 不常见的表单元素 -->
+        <div class="box2">
+            <!-- 数字输入框 -->数字输入框 <br>
+            <input type="number" /> <br>
+             <!-- 电话  -->电话 <br>
+            <input type="tel" /><br>
+            <!-- 邮件 -->邮件 <br>
+            <input type="email" /> <br>
+            <!-- 滑动条 -->滑动条 <br>
+            <input type="range" /> <br>
+             <!--日期  -->日期 <br>
+            <input type="date" />  <br>
+            <!-- 月份 -->月份 <br>
+            <input type="month" />  <br>
+            <!-- 周 -->周 <br>
+            <input type="week" />  <br>
+            <!-- 日期 -->日期 <br>
+            <input type="time" />  <br>
+            <!-- utc时间 -->utc时间 <br>
+            <input type="datetime" />  <br>
+            <!-- 本地时间 -->本地时间 <br>
+            <input type="datetime-local" />  <br>
+            <!-- 图片 -->图片 <br>
+            <input type="image" src="http://p0.so.qhimgs1.com/bdr/_240_/t01cbdeda95800117ac.jpg" />  
+            <!-- 颜色 -->颜色 <br>
+            <input type="color" />  <br>
+            <!-- 搜索框 -->搜索框 <br>
+            <input type="search" /> <br>
+            <!-- 重置按钮 -->重置按钮 <br>
+            <input type="reset" /> <br>
+        </div>
+        
+    </form>
+</body>
+</html>

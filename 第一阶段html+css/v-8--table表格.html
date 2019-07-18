@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+          .container table{
+            margin-left: 100px;
+            margin-top: 100px;
+          }
+          td{
+              width: 50px;
+              height: 50px;
+              text-align: center;
+          }
+    
+    </style>
+</head>
+<body>
+    <!--总结1： border  表格边框  一个tr代表一行类似ul 一个td代表一行内一个类似li
+        2:cellspacing  单元格间距 --margin
+        3:cellpadding  属性用来指定((单元格内容与单元格边界))之间的空白距离的大小 --paddin
+        4:rowspan="2" 纵行合并 注意减少原本位置上的div
+        5:colspan= "2" 横向合并 注意减少原本位置上的div
+        使用 rowspan，colspan，先写成一般表格在进行合并处理-->
+    <div class="container">
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <th>表头1</th>
+                <th>表头2</th>
+                <th>表头3</th>
+                <th>表头4</th>
+            </tr>
+            <tr>
+                <td rowspan="2">11</td>
+                <td colspan="2">22</td>
+                <!-- <td >aa</td> -->
+                <td>bb</td>
+            </tr>
+            <tr>
+                <!-- <td>33</td> -->
+                <td>44</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

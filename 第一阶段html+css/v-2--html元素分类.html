@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            width: 100px;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        div {
+            width: 120px;
+            height: 120px;
+            margin: 50px 50px;
+            padding: 50px 40px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 标签使用 -->
+    <!-- 行内元素，块级元素，行内块元素 -->
+    <!-- 元素可以转换类型 -->
+    <!-- display:block;  //块元素
+    display:inline  // 行内元素  
+    display:inline-block //行内块元素 -->
+
+
+     <!-- 行内元素（内联元素） -->
+     <span>你好，前端</span>
+     <i>我是斜体</i>
+     <b>我能加粗</b>
+      <!-- 必须记 -->
+     <sub>11</sub>  <!-- 下-->
+     <sup>22</sup>  <!-- 上-->
+     <!-- 总结 -->
+     <!-- 1: 设置宽高无效
+     2: margin仅左右方向有效，上下无效。
+     3: 不会自动换行 -->
+
+
+     <!-- 块级元素 （常用div,ul-li,header,footer）-->
+     <div>我是div</div>
+     <ul>
+        <li>列表类</li>
+        <li>列表类</li>
+     </ul>
+     <nav>导航链接</nav>
+     <aside>侧边栏</aside>
+     <header>头部</header>
+     <footer>脚部</footer> 
+     <!-- 必须记 -->
+     <section>章节，片段</section>
+     <article>h5属性,</article>
+     <address>我是地址，表现为斜体</address>
+     <!-- 总结 -->
+     <!-- (1)能够识别宽高
+　　　(2)margin和padding的上下左右均对其有效
+　　　(3)可以自动换行
+　　　(4)多个块状元素标签写在一起，默认排列方式为从上至下 -->
+
+
+    <!-- 行内块元素 -->
+    <div>
+        <img src="../../mytouxiang" alt="加载时错误">
+        <div>111</div>
+    </div>
+	<!-- 特征:(1)不自动换行 //行内元素的特性
+　　　　　 (2)能够识别宽高   //块元素特性
+　　　　　 (3)默认排列方式为从左到右 //行内元素的特性 -->   
+</body>
+<script>
+</script>
+</html>

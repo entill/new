@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //计算1+到1000的值
+    var num = 0;
+    for (let cnum = 0; cnum < 1001; cnum++) {
+        num+=cnum
+    }
+    console.log(num)
+    //数组去重
+    var arr = [1,1,1,55,31,1,5];
+    for (let i = 0; i < arr.length; i++) {
+            for (let j = i+1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    arr.splice(j,1) //删除后数组length发生变化，防止跳数，j--
+                    j--;
+                    i--;
+                }
+            }
+    }
+    console.log(arr)
+    //9*9乘法表
+    for (let l = 1; l < 10; l++) {
+        for (let k = 1; k < 10; k++) {
+            if (k > l) {
+                k = 10
+                document.write('<br/>')
+            } else {
+                var str = l+"*"+k+"="+l*k
+                document.write('<span>'+str+'</span>')
+            }
+            
+        }
+    }
+    //排序(冒泡排序)
+    var sortarr = [1,45,2,6,22,5];
+    for (let o = 0; o < sortarr.length; o++) {
+        for (let p = o+1; p < sortarr.length; p++) {
+            if (sortarr[o] > sortarr[p]) {
+                //交换位置
+                //方法1: [sortarr[p],sortarr[o]] = [sortarr[o],sortarr[p]]
+                var temp = sortarr[p];
+                var temo = sortarr[o];
+                sortarr[p] = temo;
+                sortarr[o] = temp;
+            }
+        }
+    }   
+    
+    
+</script>
+</body>
+</html>

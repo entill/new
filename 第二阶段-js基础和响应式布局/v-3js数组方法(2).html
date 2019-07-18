@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">你好</div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    console.log(box)
+    box.onclick = function(){
+       var str = box.innerHTML;
+       str == '你好' ? box.innerHTML = "他好" : box.innerHTML = "你好"
+    }
+    //['你好','他好','我好'] 点击时候三种文字切换
+    //break; 终止整个循环 continue;终止本次循环
+    var arr = [15,41,31,3,"a",".","0"]
+// for (var i = 0; i < arr.length; i++) {
+//     console.log(i)
+//     if (arr[i] > 20) {
+//         break;
+//     }
+// }
+// for (var j = 0; j < arr.length; j++) {
+//     console.log(j)
+//     if (arr[j] > 20) {
+//         continue;
+//     }
+//     console.log('本次循环为'+arr[j])
+// }
+// arr.forEach(function(index,value,arr){
+//     console.log(index)
+//     console.log(value) //下标
+//     console.log(arr)
+// })
+// arr.map(function(v,i,arr){
+//     console.log(v)
+//     console.log(i) //下标
+//     console.log(arr)
+// })
+// for (var i in arr) {
+//     console.log(i) //i 是下标
+//     console.log(arr[i])
+// }
+// for (var val of arr) {
+//     console.log(val) //数组每一项
+// }
+// arr.every(function(v,i){
+//    console.log(v)
+//    console.log(i)
+//    return false //return 返回值为true 继续循环，false，循环停止
+// })
+// arr.some(function(v,i){
+//     console.log(v)
+//     console.log(i)
+//     return  v < 10   //return  false，继续循环 ,true 循环停止
+// })
+//reverse 颠倒数组顺序 
+// console.log(arr.reverse()) 
+// console.log(arr)
+
+console.log(arr.sort(function(a,b){
+    return a-b
+})) 
+var obj = {
+    a:1
+}
+// console.log(Array.isArray([]))
+var linar = ['小明','校长',"老师"];
+// console.log(linar.indexOf("88"))
+</script>
+</html>
