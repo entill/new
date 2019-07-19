@@ -473,6 +473,222 @@
           <a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer">ES6阮一峰入门</a>
           <a href="https://exploringjs.com/" target="_blank" rel="noopener noreferrer">ES</a>
      </div>
+     <div class="js">
+        函数表达式与函数声明有哪些不同？
+
+        函数声明使用关键字function，后跟函数的名称。相反，函数表达式以var，let或const开头，后跟函数名称和赋值运算符=。请看以下代码：
+        
+        // Function Declaration
+        
+        function sum(x, y) {
+        
+        return x + y;
+        
+        };
+        
+        // Function Expression: ES5
+        
+        var sum = function(x, y) {
+        
+        return x + y;
+        
+        };
+        
+        // Function Expression: ES6+
+        
+        const sum = (x, y) => { return x + y };
+        
+        实际操作中，关键的区别在于函数声明要被提升，而函数表达式则没有。这意味着JavaScript解释器将函数声明移动到其作用域的顶部，因此可以定义函数声明并在代码中的任何位置调用它。相比之下，只能以线性顺序调用函数表达式：必须在调用它之前解释。
+        
+        如今，许多开发人员偏爱函数表达式有如下几个原因：
+        
+        · 首先，函数表达式实施更加可预测的结构化代码库。当然，函数声明也可使用结构化代码库; 只是函数声明让你更容易摆脱凌乱的代码。
+        
+        · 其次，可以将ES6语法用于函数表达式：这通常更为简洁，let和const可以更好地控制是否重新赋值变量，我们将在下一个问题中看到。
+        
+        5. var，let和const有什么区别？
+        
+        自ES6发布以来，现代语法已进入各行各业，这已是一个极其常见的面试问题。Var是第一版JavaScript中的变量声明关键字。但它的缺点导致在ES6中采用了两个新关键字：let和const。
+        
+        这三个关键字具有不同的分配，提升和域 - 因此我们将单独讨论。
+        
+        i) 分配
+        
+        最基本的区别是let和var可以重新分配，而const则不能。这使得const成为不变变量的最佳选择，并且它将防止诸如意外重新分配之类的失误。注意，当变量表示数组或对象时，const确实允许变量改变，只是无法重新分配变量本身。
+        
+        Let 和var都可重新分配，但是正如以下几点应该明确的那样，如果不是所有情况都要求更改变量，多数选择中，let具有优于var的显著优势。
+        
+        ii)提升
+        
+        与函数声明和表达式（如上所述）之间的差异类似，使用var声明的变量总是被提升到它们各自的顶部，而使用const和let声明的变量被提升，但是如果你试图在声明之前访问，将会得到一个TDZ（时间死区）错误。由于var可能更容易出错，例如意外重新分配，因此运算是有用的。请看以下代码：
+        
+        var x = "global scope";
+        
+        function foo() {
+        
+        var x = "functional scope";
+        
+        console.log(x);
+        
+        }
+        
+        foo(); // "functional scope"
+        
+        console.log(x); // "global scope"
+        
+        这里，foo（）和console.log（x）的结果与预期一致。但是，如果去掉第二个变量又会发生什么呢？
+        
+        var x = "global scope";
+        
+        function foo() {
+        
+        x = "functional scope";
+        
+        console.log(x);
+        
+        }
+        
+        foo(); // "functional scope"
+        
+        console.log(x); // "functional scope"
+        
+        尽管在函数内定义，但x =“functional scope”已覆盖全局变量。需要重复关键字var来指定第二个变量x仅限于foo（）。
+        
+        iii) 域
+        
+        虽然var是function-scoped(函数作用域)，但let和const是block-scoped(块作用域的：一般情况下，Block是大括号{}内的任何代码，包括函数，条件语句和循环。为了阐明差异，请看以下代码：
+        
+        var a = 0;
+        
+        let b = 0;
+        
+        const c = 0;
+        
+        if (true) {
+        
+        var a = 1;
+        
+        let b = 1;
+        
+        const c = 1;
+        
+        }
+        
+        console.log(a); // 1
+        
+        console.log(b); // 0
+        
+        console.log(c); // 0
+        
+        在条件块中，全局范围的var a已重新定义，但全局范围的let b和const c则没有。一般而言，确保本地任务保持在本地执行，将使代码更加清晰，减少出错。
+        
+        6. 如果分配不带关键字的变量会发生什么？
+        
+        如果不使用关键字定义变量，又会如何？从技术上讲，如果x尚未定义，则x = 1是window.x = 1的简写。
+        
+        要想完全杜绝这种简写，可以编写严格模式，——在ES5中介绍过——在文档顶部或特定函数中写use strict。后，当你尝试声明没有关键字的变量时，你将收到一条报语法错误：Uncaught SyntaxError：Unexpected indentifier。
+        
+        7. 面向对象编程（OOP）和函数式编程（FP）之间的区别是什么？
+        
+        JavaScript是一种多范式语言，即它支持多种不同的编程风格，包括事件驱动，函数和面向对象。
+        
+        编程范式各有不同，但在当代计算中，函数编程和面向对象编程最为流行 - 而JavaScript两种都可执行。
+        
+        面向对象编程
+        
+        OOP以“对象”这一概念为基础的数据结构，包含数据字段（JavaScript称为类）和程序(JavaScript中的方法)。
+        
+        一些JavaScript的内置对象包括Math（用于random，max和sin等方法），JSON（用于解析JSON数据）和原始数据类型，如String，Array，Number和Boolean。
+        
+        无论何时采用的内置方法，原型或类，本质上都在使用面向对象编程。
+        
+        函数编程
+        
+        FP（函数编程）以“纯函数”的概念为基础，避免共享状态，可变数据和副作用。这可能看起来像很多术语，但可能已经在代码中创建了许多纯函数。
+        
+        输入相同数据，纯函数总是返回相同的输出。这种方式没有副作用：除了返回结果之外，例如登录控制台或修改外部变量等都不会发生。
+        
+        至于共享状态，这里有一个简单的例子，即使输入是相同的，状态仍可以改变函数的输出。设置一个具有两个函数的代码：一个将数字加5，另一个将数字乘以5。
+        
+        const num = {
+        
+        val: 1
+        
+        };
+        
+        const add5 = () => num.val += 5;
+        
+        const multiply5 = () => num.val *= 5;
+        
+        如果先调用add5在调用乘以5，则整体结果为30。但是如果以相反的方式执行函数并记录结果，则输出为10，与之前结果不一致。
+        
+        这违背了函数式编程的原理，因为函数的结果因Context调用方法而异。 重新编写上面的代码，以便结果更易预测：
+        
+        const num = {
+        
+        val: 1
+        
+        };
+        
+        const add5 = () => Object.assign({}, num, {val: num.val + 5}); const multiply5 = () => Object.assign({}, num, {val: num.val * 5});
+        
+        现在，num.val的值仍然为1，无论Context调用的方法如何，add5（num）和multiply5（num）将始终输出相同的结果。
+        
+        8. 命令式和声明性编程之间有什么区别？
+        
+        关于命令式编程和声明式编程的区别，可以以OOP（面向对象编程）和FP（函数式编程）为参考。
+        
+        这两种是描述多种不同编程范式共有特征的概括性术语。FP（函数式编程）是声明性编程的一个范例，而OOP（面向对象编程）是命令式编程的一个范例。
+        
+        从基本的意义层面，命令式编程关注的是如何做某事。它以最基本的方式阐明了步骤，并以for和while循环，if和switch陈述句等为特征。
+        
+        const sumArray = array => {
+        
+        let result = 0;
+        
+        for (let i = 0; i &lt; array.length; i++) {
+        
+        result += array[i]
+        
+        };
+        
+        return result;
+        
+        }
+        
+        相比之下，声明性编程关注的是做什么，它通过依赖表达式将怎样做抽出来。这通常会产生更简洁的代码，但是在规模上，由于透明度低，调试会更加困难。
+        
+        这是上述的sumArray（）函数的声明方法。
+        
+        const sumArray = array => { return array.reduce((x, y) => x + y) };
+        9. 是什么基于原型的继承？
+
+最后，要讲到的是基于原型的继承。面向对象编程有几种不同的类型，JavaScript使用的是基于原型的继承。该系统通过使用现有对象作为原型，允许重复运行。
+
+即使是首次遇到原型这一概念，使用内置方法时也会遇到原型系统。 例如，用于操作数组的函数（如map，reduce，splice等）都是Array.prototype对象的方法。实际上，数组的每个实例（使用方括号[]定义，或者 -不常见的 new Array（））都继承自Array.prototype，这就是为什么map，reduce和spliceare等方法都默认可用的原因。
+
+几乎所有内置对象都是如此，例如字符串和布尔运算：只有少数，如Infinity，NaN，null和undefined等没有类或方法。
+
+在原型链的末尾，能发现 Object.prototype，几乎JavaScript中的每个对象都是Object的一个实例。比如Array. prototype和String. prototype都继承了Object.prototype的类和方法。
+
+要想对使用prototype syntax的对象添加类和方法，只需将对象作为函数启动，并使用prototype关键字添加类和方法：
+
+function Person() {};
+
+Person.prototype.forename = "John";
+
+Person.prototype.surname = "Smith";
+
+是否应该覆盖或扩展原型运算？
+
+可以使用与创建扩展prototypes同样的方式改变内置运算，但是大多数开发人员（以及大多数公司）不会建议这样做。
+
+如果希望多个对象进行同样的运算，可以创建一个自定义对象（或定义你自己的“类”或“子类”），这些对象继承内置原型而不改变原型本身。如果打算与其他开发人员合作，他们对JavaScript的默认行为有一定的预期，编辑此默认行为很容易导致出错。
+
+总的来说，这些问题能够帮助你更好理解JavaScript，包括其核心功能和其他鲜为人知的功能 ，并且望能助你为下次的面试做好准备。
+
+
+     </div>
      <div class="footer">
          在写css时类似text-align:时，有些会在前面加一个下划线，-> _text-align: <br>
          这样的目的在于span兼容IE6浏览器
